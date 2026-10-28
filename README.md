@@ -1,6 +1,6 @@
 # Hidden Bogotá
 
-Aplicación web para conectar turistas con comercios locales de Bogotá. El proyecto usa React y Vite en el cliente, Node.js y Express en el servidor, y MySQL para almacenar la información.
+Aplicación web para conectar turistas con comercios locales de Bogotá. Está construida con React, Vite, Node.js, Express y MySQL.
 
 ## Requisitos
 
@@ -10,45 +10,36 @@ Aplicación web para conectar turistas con comercios locales de Bogotá. El proy
 
 ## Instalación local
 
-1. Crea la base de datos ejecutando `database/hiddenbogota.sql` en MySQL Workbench. **Ese script recrea la base de datos; no lo ejecutes sobre una base que contenga información que quieras conservar.**
-2. En la carpeta `server`, copia `.env.example` a `.env` y configura tus propios valores.
-3. En una terminal:
-
-   ```powershell
+1. Ejecuta database/hiddenbogota.sql en MySQL Workbench para crear la base hiddenbogota. El script recrea la base de datos; no lo ejecutes si ya tienes información que quieras conservar.
+2. En server, copia .env.example a .env y completa la configuración local.
+3. En una terminal, ejecuta:
    cd server
    npm install
    npm start
-   ```
-
-4. En otra terminal:
-
-   ```powershell
+4. En otra terminal, ejecuta:
    cd client
    npm install
    npm run dev
-   ```
-
 5. Abre http://localhost:5173.
 
-## Funciones
+## Funcionalidades
 
 - Registro e inicio de sesión para turistas y comercios.
-- Exploración de comercios, favoritos, reseñas y perfiles.
-- Panel para que cada comercio administre su perfil y galería.
-- Área administrativa para revisar publicaciones.
-- Páginas de costos, privacidad, tratamiento de datos, respaldo, cookies y créditos.
+- Exploración de perfiles, favoritos y reseñas.
+- Panel de comercios y revisión administrativa.
 - Plan destacado de $80.000 COP mensuales.
-- La pantalla actual de tarjeta valida la marca y muestra confirmación de demostración; **no procesa ni recibe dinero real**.
+- Formulario de tarjeta que reconoce marcas y muestra un resultado de demostración.
 
-## Variables de entorno
+## Pagos
 
-Usa `server/.env.example` como guía y crea `server/.env` localmente. Los archivos `.env`, las dependencias instaladas, el build y las imágenes cargadas en `server/uploads` se excluyen de Git.
+La pantalla de tarjeta incluida en esta entrega es una demostración de interfaz: no valida fondos, no confirma que la tarjeta exista y no realiza cobros. No ingreses datos reales de tarjetas. Para recibir dinero se necesita integrar y verificar una pasarela de pagos real en el servidor.
 
-Para usar una pasarela de pagos real se requiere una integración activa, credenciales válidas del titular de la cuenta y verificación del estado del pago en el servidor. No publiques claves ni datos de tarjetas.
+## Seguridad
+
+El archivo server/.env contiene configuración privada y no se debe subir a GitHub. El repositorio incluye server/.env.example con valores de muestra. Las dependencias instaladas, carpetas de compilación y archivos cargados por usuarios se excluyen del repositorio.
 
 ## Compilar el cliente
 
-```powershell
-cd client
+En client ejecuta:
 npm run build
-```
+
